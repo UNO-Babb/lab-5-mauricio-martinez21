@@ -1,3 +1,4 @@
+
 #Caesar Cipher
 #The Caesar cipher moves each letter forward in the alphabet by
 #the key.  The resulting message has all the letters advanced by 'key'
@@ -5,9 +6,17 @@
 #To run the code, run the main() function
 
 def encode(message, key):
+    plaintext=encode(message,-key)
+    return plaintext
     alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     message = message.upper()
     secret = ""
+    freq=["0,0,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"]
+    #loop through each letter in message
+    for letter in message:
+        spot=alpha.find(letter)
+        if spot!=-1:
+         freq[spot]=freq[spot]+1
 
     for letter in message:
         if (alpha.find(letter) >= 0): #check to see if the letter is actually a letter
@@ -33,3 +42,4 @@ def main():
 
 if __name__ == '__main__':
   main()
+
